@@ -102,4 +102,26 @@ public class TodoListTest {
         assertEquals(newValue,result);
         System.out.println("entry is successfully edited");
     }
+    
+    @Test
+    public void testRemoveAt() {
+        System.out.println("removeAt");
+        int i = 0;
+        TodoList instance = new TodoList();
+        String item = "ABCD";
+        instance.add(item);
+        item = "STEEVE";
+        instance.add(item); 
+        item = "BENETT";
+        instance.add(item);
+        i = instance.size();
+        i = i - 2; // get position of 1
+        instance.removeAt(i);// removing the entry at postion 1
+        //check the entry STEEVE is removed
+        String ExpResult = "STEEVE"; 
+        String result = instance.elementAt(i); // check position at one
+        assertNotEquals(ExpResult,result);
+        System.out.println("entry is deleted successfully");
+    }
+
 }
