@@ -81,4 +81,25 @@ public class TodoListTest {
         assertTrue(i>0);
         System.out.println("entry is added to the list");
     }
+    
+    @Test
+    public void testEditAt() {
+        System.out.println("editAt");
+        TodoList instance = new TodoList();
+        int i = 0;
+        String item = "ABCD";
+        instance.add(item);
+        item = "STEEVE";
+        instance.add(item); 
+        item = "BENETT";
+        instance.add(item);
+        String result = instance.elementAt(1); // check position at one
+        System.out.println("entry is at position 1"+result);
+        String newValue = "JOHN";
+        instance.editAt(1, newValue);
+        result = instance.elementAt(1); // check position at one
+        System.out.println("After editing the entry at positon at 1"+result);
+        assertEquals(newValue,result);
+        System.out.println("entry is successfully edited");
+    }
 }
