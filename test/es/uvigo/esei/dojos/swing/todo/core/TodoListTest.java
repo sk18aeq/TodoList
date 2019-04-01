@@ -54,4 +54,20 @@ public class TodoListTest {
         assertEquals(Expresult,result);
         System.out.println("entry is moved up one postion");
     }
+    @Test
+    public void testMoveDown() {
+        System.out.println("moveDown");
+        TodoList instance = new TodoList();
+        String name = "Suresh";
+        instance.add(name);
+        name = "Siva";
+        instance.add(name);
+        name = "ABCD";
+        instance.add(name); 
+        instance.moveDown(1);//entry moving up to the position one 
+        String Expresult = "Siva";
+        String result = instance.elementAt(2); // check position at one
+        assertEquals(Expresult,result);
+        System.out.println("entry is moved down to the one postion");
+    }
 }
