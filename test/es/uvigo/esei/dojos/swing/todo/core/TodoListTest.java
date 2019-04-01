@@ -123,5 +123,22 @@ public class TodoListTest {
         assertNotEquals(ExpResult,result);
         System.out.println("entry is deleted successfully");
     }
+    
+    @Test
+    public void testSize() {
+        System.out.println("size");
+        TodoList instance = new TodoList();
+        String item = "ABCD";
+        instance.add(item);
+        item = "STEEVE";
+        instance.add(item); 
+        item = "BENETT";
+        instance.add(item);
+        int expResult = 3;
+        int result = instance.size();
+        assertEquals(expResult, result);
+         System.out.println("size of the list is"+result);
+    }
+    
 
 }
