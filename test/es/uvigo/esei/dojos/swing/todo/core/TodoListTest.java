@@ -70,4 +70,15 @@ public class TodoListTest {
         assertEquals(Expresult,result);
         System.out.println("entry is moved down to the one postion");
     }
+    
+    @Test
+    public void testAdd() {
+        System.out.println("add");
+        String item = "ABCD";
+        TodoList instance = new TodoList();
+        instance.add(item);
+        int i = instance.size();
+        assertTrue(i>0);
+        System.out.println("entry is added to the list");
+    }
 }
