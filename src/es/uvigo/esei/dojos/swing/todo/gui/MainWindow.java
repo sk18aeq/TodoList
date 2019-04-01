@@ -32,6 +32,8 @@ public class MainWindow extends JFrame{
 	private JPanel mainContentPane;
 	private JPanel newTaskControls;
 	private JButton addTaskButton;
+        private JButton deleteAllButton;
+        private JButton UpperCase;
 	private JTextField newTaskField;
 	private JScrollPane taskListScrollPane;
 	private JPanel taskListControls;
@@ -130,6 +132,14 @@ public class MainWindow extends JFrame{
 			button = getDeleteButton();
 			button.setAlignmentX(CENTER_ALIGNMENT);
 			this.taskListControls.add(button);
+                        
+                        button = getDeleteAllButton();
+			button.setAlignmentX(CENTER_ALIGNMENT);
+			this.taskListControls.add(button);
+                        
+                        button = getUppercaseButton();
+			button.setAlignmentX(CENTER_ALIGNMENT);
+			this.taskListControls.add(button);
 			
 			this.taskListControls.add(createVerticalStrut(10));
 			
@@ -176,6 +186,35 @@ public class MainWindow extends JFrame{
 		return this.deleteButton;
 	}
 
+	private JButton getDeleteAllButton() {
+		if (this.deleteAllButton == null) {
+			this.deleteAllButton = new JButton("Delete All");
+			this.deleteAllButton.setIcon(createIcon("bin.png"));
+			
+			this.deleteAllButton.addMouseListener(new MouseAdapter(){
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					todoListModel.removeAll(getTaskList().getSelectedIndex());
+				}
+			});
+		}
+		
+		return this.deleteAllButton;
+	}
+	private JButton getUppercaseButton() {
+		if (this.UpperCase == null) {
+			this.UpperCase = new JButton("UpperCase");	
+			this.UpperCase.addMouseListener(new MouseAdapter(){
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					todoListModel.uppercase(getTaskList().getSelectedIndex());
+				}
+			});
+		}
+		
+		return this.UpperCase;
+	}
+        
 	private JButton getDownButton() {
 		if (this.downButton == null) {
 			this.downButton = new JButton("Down");

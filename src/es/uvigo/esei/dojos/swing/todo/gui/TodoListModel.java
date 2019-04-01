@@ -27,7 +27,14 @@ public class TodoListModel extends AbstractListModel<String> {
 		this.list.removeAt(i);
 		this.fireContentsChanged(this, i, i);
 	}
-	
+	public void removeAll(int i) {
+		this.list.removeAll();
+                this.fireContentsChanged(this, i, i);
+	}
+	public void uppercase(int i) {
+		this.list.uppercase(i);
+                this.fireContentsChanged(this, i, i);
+	}        
 	public void add(String task) {
 		this.list.add(task);
 		this.fireContentsChanged(this, 

@@ -39,7 +39,13 @@ public class TodoList implements Iterable<String>{
 			this.list.remove(i);
 		}
 	}
-	
+	public void removeAll( ) {
+			this.list.removeAll(list);
+	}
+	public void uppercase(int i) {
+            String entry = this.list.get(i);
+            this.list.set(i, entry.toUpperCase()); 
+	}        
 	public int size() {
 		return list.size();
 	}
